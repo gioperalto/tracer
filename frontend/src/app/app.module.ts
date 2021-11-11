@@ -13,20 +13,22 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { HomeComponent } from './tabs/home/home.component';
-import { LocationsComponent } from './tabs/locations/locations.component';
-import { ExposuresComponent } from './tabs/exposures/exposures.component';
+import { TabsHomeComponent } from './tabs/home/home.component';
+import { TabsLocationsComponent } from './tabs/locations/locations.component';
+import { TabsExposuresComponent } from './tabs/exposures/exposures.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatChipsModule } from '@angular/material/chips';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LocationsComponent,
-    ExposuresComponent,
+    TabsHomeComponent,
+    TabsLocationsComponent,
+    TabsExposuresComponent,
   ],
   imports: [
     BrowserModule,

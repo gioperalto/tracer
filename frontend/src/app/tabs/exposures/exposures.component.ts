@@ -5,5 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './exposures.component.html',
   styleUrls: ['./exposures.component.css']
 })
-export class ExposuresComponent {
+export class TabsExposuresComponent {
 }

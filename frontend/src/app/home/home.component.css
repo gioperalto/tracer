@@ -1,0 +1,22 @@
+.example-tab-icon {
+	margin-right: 8px;
+}
+
+.example-card {
+	max-width: 400px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
+}

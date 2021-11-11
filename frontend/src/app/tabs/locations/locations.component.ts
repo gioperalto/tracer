@@ -21,7 +21,7 @@ const LOCATION_DATA: Location[] = [
   templateUrl: './locations.component.html',
   styleUrls: ['./locations.component.css']
 })
-export class LocationsComponent {
+export class TabsLocationsComponent {
   displayedColumns: string[] = ['name', 'latitude', 'longitude', 'visited'];
   dataSource = LOCATION_DATA;
 }
