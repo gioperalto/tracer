@@ -1,0 +1,11 @@
+.example-tab-icon {
+	margin-right: 8px;
+}
+
+.example-card {
+	max-width: 400px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
