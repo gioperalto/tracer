@@ -21,11 +21,18 @@ import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatChipsModule } from '@angular/material/chips';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    LoginComponent,
+    CreateAccountComponent,
     TabsHomeComponent,
     TabsLocationsComponent,
     TabsExposuresComponent,
@@ -46,6 +53,9 @@ import { HomeComponent } from './home/home.component';
     MatListModule,
     MatTableModule,
     MatChipsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
