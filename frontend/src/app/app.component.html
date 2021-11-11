@@ -1,40 +1,54 @@
-<mat-toolbar color="primary">
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>Tracer</span>
-  <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    Login
-  </button>
-</mat-toolbar>
-
-<mat-tab-group mat-stretch-tabs >
-  <mat-tab>
-    <ng-template mat-tab-label>
-      <mat-icon class="example-tab-icon">house</mat-icon>
-      Home
-    </ng-template>
-
-    <tabs-home></tabs-home>
-  </mat-tab>
-
-  <mat-tab>
-    <ng-template mat-tab-label>
-      <mat-icon class="example-tab-icon">map</mat-icon>
-      Locations
-    </ng-template>
-    Content 2
-  </mat-tab>
-
-  <mat-tab>
-    <ng-template mat-tab-label>
-      <mat-icon class="example-tab-icon">favorite</mat-icon>
-      Exposures
-    </ng-template>
-
-    Content 3
-  </mat-tab>
-</mat-tab-group>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <button color="primary" mat-raised-button>Add Location</button>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <button color="primary" mat-raised-button>Report Exposure</button>
+      </mat-list-item>
+    </mat-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="example-icon" (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Tracer</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        Login
+      </button>
+    </mat-toolbar>
+    
+    <mat-tab-group mat-stretch-tabs >
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">house</mat-icon>
+          Home
+        </ng-template>
+    
+        <tabs-home></tabs-home>
+      </mat-tab>
+    
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">map</mat-icon>
+          Locations
+        </ng-template>
+        <tabs-locations></tabs-locations>
+      </mat-tab>
+    
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">favorite</mat-icon>
+          Exposures
+        </ng-template>
+    
+        <tabs-exposures></tabs-exposures>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-drawer-content>
+</mat-drawer-container>
 
 <router-outlet></router-outlet>

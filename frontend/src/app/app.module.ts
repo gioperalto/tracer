@@ -14,11 +14,19 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HomeComponent } from './tabs/home/home.component';
+import { LocationsComponent } from './tabs/locations/locations.component';
+import { ExposuresComponent } from './tabs/exposures/exposures.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    LocationsComponent,
+    ExposuresComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +40,10 @@ import { HomeComponent } from './tabs/home/home.component';
     MatDividerModule,
     MatProgressBarModule,
     MatGridListModule,
+    MatSidenavModule,
+    MatListModule,
+    MatTableModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
