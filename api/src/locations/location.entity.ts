@@ -9,11 +9,11 @@ export class Location {
   @Column()
   name: string;
 
-  @Column()
-  latitude: string;
+  @Column({ type: 'decimal', precision: 10, scale: 8 })
+  latitude: number;
 
-  @Column()
-  longitude: string;
+  @Column({ type: 'decimal', precision: 10, scale: 8 })
+  longitude: number;
 
   @Column({ type: 'timestamp' })
   visited: Date;
