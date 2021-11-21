@@ -15,7 +15,7 @@ export class Location {
   @Column()
   longitude: string;
 
-  @Column({ type: 'timestamptz' })
+  @Column({ type: 'timestamp' })
   visited: Date;
 
   @ManyToOne(() => Patient, patient => patient.locations)

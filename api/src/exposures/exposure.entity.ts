@@ -6,7 +6,7 @@ export class Exposure {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'timestamptz' })
+  @Column({ type: 'timestamp' })
   occurrence: Date;
 
   @ManyToOne(() => Patient, patient => patient.exposures)

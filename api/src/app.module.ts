@@ -2,8 +2,9 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { Exposure } from './exposures/exposure.entity';
 import { Patient } from './patients/patient.entity';
+import { Location } from './locations/location.entity';
+import { Exposure } from './exposures/exposure.entity';
 
 @Module({
   imports: [
@@ -12,7 +13,7 @@ import { Patient } from './patients/patient.entity';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'root',
+      password: 'password',
       database: 'tracer',
       entities: [Patient, Location, Exposure],
       synchronize: true,
