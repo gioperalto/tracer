@@ -9,7 +9,10 @@
 				</mat-form-field>
 				<mat-form-field class="example-full-width" appearance="fill">
 					<mat-label>Password</mat-label>
-					<input matInput>
+					<input matInput [type]="hide ? 'password' : 'text'">
+					<button mat-icon-button matSuffix (click)="toggleHide($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+						<mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+					</button>
 				</mat-form-field>
 			</form>
 		</mat-card-content>

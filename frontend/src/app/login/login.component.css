@@ -5,6 +5,10 @@
 	margin-bottom: 15px;
 }
 
+.example-full-width {
+	width: 100%;
+}
+
 :host {
   display: flex;
   flex-direction: column;

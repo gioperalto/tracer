@@ -6,4 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  hide = true;
+
+  toggleHide(event: any): void {
+    this.hide = !this.hide;
+    event.preventDefault();
+  }
 }

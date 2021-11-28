@@ -9,6 +9,10 @@
   justify-content: center;
 }
 
+.logo {
+  cursor: pointer;
+}
+
 .example-sidenav {
   padding: 20px;
 }
