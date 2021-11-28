@@ -14,7 +14,11 @@ export class PatientsService {
     return this.patientsRepository.find();
   }
 
-  findOne(email: string): Promise<Patient> {
+  findOne(id: string): Promise<Patient> {
+    return this.patientsRepository.findOne(id);
+  }
+
+  findOneByEmail(email: string): Promise<Patient> {
     return this.patientsRepository.findOne({ email: email });
   }
 
