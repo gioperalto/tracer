@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { Patient } from './patients/patient.entity';
 import { Location } from './locations/location.entity';
 import { Exposure } from './exposures/exposure.entity';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { Exposure } from './exposures/exposure.entity';
       entities: [Patient, Location, Exposure],
       synchronize: true,
     }),
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
