@@ -14,8 +14,8 @@ export class PatientsService {
     return this.patientsRepository.find();
   }
 
-  findOne(id: string): Promise<Patient> {
-    return this.patientsRepository.findOne(id);
+  findOne(email: string): Promise<Patient> {
+    return this.patientsRepository.findOne({ email: email });
   }
 
   async remove(id: string): Promise<void> {
