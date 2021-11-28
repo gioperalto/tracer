@@ -6,9 +6,10 @@ import { PatientsService } from 'src/patients/patients.service';
 export class AuthService {
 	constructor(private patientsService: PatientsService) {}
 
-  async validateUser(email: string, pass: string): Promise<any> {
-    const user = await this.patientsService.findOneByEmail(email);
+  async validateUser(username: string, pass: string): Promise<any> {
+    const user = await this.patientsService.findOneByEmail(username);
     
+    console.log(`Email: ${username}. Pass: ${pass}. User: ${user}.`);
 		if (user && user.password === pass) {
       const { 
 				password, firstName, lastName, email, 
