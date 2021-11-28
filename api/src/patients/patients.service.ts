@@ -18,6 +18,10 @@ export class PatientsService {
     return this.patientsRepository.findOne(id);
   }
 
+  findOneByEmail(email: string): Promise<Patient> {
+    return this.patientsRepository.findOne({ email: email });
+  }
+
   async remove(id: string): Promise<void> {
     await this.patientsRepository.delete(id);
   }
