@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -27,6 +28,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 
+import { booksReducer } from './state/books/books.reducer';
+import { locationsReducer } from './state/locations/locations.reducer';
+import { StoreModule } from '@ngrx/store';
+import { TabsBooksComponent } from './tabs/books/books.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,11 +42,13 @@ import { MatInputModule } from '@angular/material/input';
     TabsHomeComponent,
     TabsLocationsComponent,
     TabsExposuresComponent,
+    TabsBooksComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
@@ -56,6 +64,7 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
+    StoreModule.forRoot({ books: booksReducer, locations: locationsReducer }),
   ],
   providers: [],
   bootstrap: [AppComponent]

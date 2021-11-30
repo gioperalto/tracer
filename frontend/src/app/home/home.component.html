@@ -10,6 +10,15 @@
 
   <mat-tab>
     <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">book</mat-icon>
+      Books
+    </ng-template>
+
+    <tabs-books [books]="books$ | async"></tabs-books>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
       <mat-icon class="example-tab-icon">map</mat-icon>
       Locations
     </ng-template>
