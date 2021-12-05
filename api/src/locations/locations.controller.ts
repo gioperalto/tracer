@@ -15,7 +15,10 @@ export class LocationsController {
 
 	@UseGuards(JwtAuthGuard)
   @Get()
-  getLocations(@Request() req) {
-    return this.locationsService.findAll(req.user.userId);
+  async getLocations(@Request() req) {
+    return {
+      type: 'location',
+      items: await this.locationsService.findAll(req.user.userId)
+    };
   }
 }
