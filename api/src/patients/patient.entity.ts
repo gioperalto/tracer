@@ -22,6 +22,9 @@ export class Patient {
   @Column()
   password: string;
 
+  @Column({ type: 'timestamp' })
+  created: Date;
+
   @OneToMany(() => Location, location => location.patient)
   locations: Location[];
 
