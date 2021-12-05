@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -34,10 +34,7 @@ import { StoreModule } from '@ngrx/store';
 import { TabsBooksComponent } from './tabs/books/books.component';
 import { AuthService } from './auth/auth.service';
 import { FormsModule } from '@angular/forms';
-
-export function tokenGetter() {
-  return localStorage.getItem('access_token');
-}
+import { AuthInterceptor } from './auth/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -71,9 +68,9 @@ export function tokenGetter() {
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
-    StoreModule.forRoot({ books: booksReducer, locations: locationsReducer }),
+    StoreModule.forRoot({ locations: locationsReducer }),
   ],
-  providers: [AuthService],
+  providers: [AuthService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

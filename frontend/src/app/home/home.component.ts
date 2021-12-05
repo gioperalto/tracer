@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { selectBooks } from '../state/books/books.selectors';
-import { retrievedBookList } from '../state/books/books.actions';
-import { GoogleBooksService } from '../state/books/books.service';
 import { AuthService } from '../auth/auth.service';
 import { Router } from '@angular/router';
+import { LocationsService } from '../state/locations/locations.service';
+import { getLocations } from '../state/locations/locations.actions';
+import { selectLocations } from '../state/locations/locations.selectors';
 
 @Component({
   selector: 'home',
@@ -12,19 +12,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  books$ = this.store.select(selectBooks);
+  locations$ = this.store.select(selectLocations);
 
   constructor(
     public auth: AuthService,
     private router: Router,
-    private booksService: GoogleBooksService,
+    private locationsService: LocationsService,
     private store: Store
   ) {}
 
   ngOnInit() {
-    this.booksService
-      .getBooks()
-      .subscribe((books) => this.store.dispatch(retrievedBookList({ books })));
+    this.locationsService
+      .getLocations()
+      .subscribe((locations) => this.store.dispatch(getLocations({ locations })));
   }
 
   goLogin(): void {

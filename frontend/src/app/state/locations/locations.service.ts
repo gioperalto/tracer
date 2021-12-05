@@ -13,7 +13,7 @@ export class LocationsService {
   getLocations(): Observable<Array<Location>> {
     return this.http
       .get<{ items: Location[] }>(
-        `${apiUrl}/locations`
+        `${apiUrl}/api/locations`
       )
       .pipe(map((locations) => locations.items || []));
   }
