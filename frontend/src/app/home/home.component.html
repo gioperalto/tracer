@@ -1,4 +1,4 @@
-<mat-tab-group mat-stretch-tabs >
+<mat-tab-group mat-stretch-tabs [selectedIndex]="tabIndex" *ngIf="auth.loggedIn">
   <mat-tab>
     <ng-template mat-tab-label>
       <mat-icon class="example-tab-icon">house</mat-icon>
@@ -13,7 +13,7 @@
       <mat-icon class="example-tab-icon">map</mat-icon>
       Locations
     </ng-template>
-    <tabs-locations></tabs-locations>
+    <tabs-locations [locations]="locations$ | async"></tabs-locations>
   </mat-tab>
 
   <mat-tab>
@@ -25,3 +25,13 @@
     <tabs-exposures></tabs-exposures>
   </mat-tab>
 </mat-tab-group>
+
+<header class="docs-header-background" *ngIf="!auth.loggedIn">
+  <div class="docs-header-section">
+    <h1 class="mat-h1">Tracer</h1>
+    <h2 class="mat-h2">A contact tracing application.</h2>
+    <div class="mat-header-start">
+      <button color="primary" mat-raised-button (click)="goLogin()">Get Started</button>
+    </div>
+  </div>
+</header>

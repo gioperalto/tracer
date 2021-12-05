@@ -1,20 +1,6 @@
-import { Component } from '@angular/core';
-
-export interface Location {
-  name: string;
-  latitude: number;
-  longitude: number;
-  visited: string;
-}
-
-const LOCATION_DATA: Location[] = [
-  { name: 'Google HQ', latitude: 21.0079, longitude: 25.01, visited: 'Nov 10, 2021'},
-  { name: 'Yeti HQ', latitude: 14.0026, longitude: 120.201, visited: 'Nov 9, 2021'},
-  { name: 'Grub & Hub', latitude: 62.941, longitude: 45.62, visited: 'Nov 8, 2021'},
-  { name: 'Acme Feed & Seed', latitude: 95.0122, longitude: 81.444, visited: 'Oct 20, 2021'},
-  { name: 'Outback Steakhouse', latitude: 10.811, longitude: 101.201, visited: 'Oct 11, 2021'},
-  { name: 'LIV Night Club', latitude: 12.0107, longitude: 66.77, visited: 'Jul 9, 2021'},
-];
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { Location } from 'src/app/models/locations.model';
 
 @Component({
   selector: 'tabs-locations',
@@ -22,6 +8,8 @@ const LOCATION_DATA: Location[] = [
   styleUrls: ['./locations.component.css']
 })
 export class TabsLocationsComponent {
+  @Input() locations: Location[] | null = [];
   displayedColumns: string[] = ['name', 'latitude', 'longitude', 'visited'];
-  dataSource = LOCATION_DATA;
+
+  constructor(private router: Router) {}
 }

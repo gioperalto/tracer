@@ -1,5 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { CreateLocationDto } from 'src/dto/create-location.dto';
+import { PatientsService } from 'src/patients/patients.service';
 import { Repository } from 'typeorm';
 import { Location } from './location.entity';
 
@@ -8,10 +10,30 @@ export class LocationsService {
   constructor(
     @InjectRepository(Location)
     private locationsRepository: Repository<Location>,
+    private patientsService: PatientsService,
   ) {}
 
-  findAll(): Promise<Location[]> {
-    return this.locationsRepository.find();
+  async create(loc: CreateLocationDto, patientId: string) {
+    const patient = await this.patientsService.findOne(patientId);
+    const location = new Location();
+
+    location.name = loc.name;
+    location.visited = loc.visited;
+    location.latitude = loc.latitude;
+    location.longitude = loc.longitude;
+    location.patient = patient;
+
+    console.log(location);
+
+    await location.save();
+
+    return location;
+  }
+
+  async findAll(patientId: string): Promise<Location[]> {
+    const patient = await this.patientsService.findOne(patientId);
+
+    return this.locationsRepository.find({ patient: patient });
   }
 
   findOne(id: string): Promise<Location> {

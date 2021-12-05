@@ -2,21 +2,24 @@
   <mat-drawer #drawer class="example-sidenav" mode="side">
     <mat-list role="list">
       <mat-list-item role="listitem">
-        <button color="primary" mat-raised-button>Add Location</button>
+        <button color="primary" mat-raised-button routerLink="add/location">Add Location</button>
       </mat-list-item>
       <mat-list-item role="listitem">
-        <button color="primary" mat-raised-button>Report Exposure</button>
+        <button color="primary" mat-raised-button routerLink="report/exposure">Report Exposure</button>
       </mat-list-item>
     </mat-list>
   </mat-drawer>
   <mat-drawer-content>
     <mat-toolbar color="primary">
-      <button mat-icon-button class="example-icon" (click)="drawer.toggle()">
+      <button mat-icon-button class="example-icon" (click)="drawer.toggle()" *ngIf="auth.loggedIn">
         <mat-icon>menu</mat-icon>
       </button>
-      <span class="logo" (click)="goHome()">Tracer</span>
+      <span class="logo" routerLink="">Tracer</span>
       <span class="example-spacer"></span>
-      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <button mat-icon-button routerLink="login" *ngIf="!auth.loggedIn">
+        Login
+      </button>
+      <button mat-icon-button (click)="logout()" *ngIf="auth.loggedIn">
         Logout
       </button>
     </mat-toolbar>
