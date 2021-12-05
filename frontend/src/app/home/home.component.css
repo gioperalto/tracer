@@ -5,3 +5,37 @@
 .example-card {
 	max-width: 400px;
 }
+
+.docs-header-background {
+	overflow: hidden;
+	position: relative;
+	height: 420px;
+}
+
+.docs-header-section {
+	position: absolute;
+	z-index: 0;
+	text-align: center;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.mat-h1 {
+	font-size: 56px;
+	font-weight: bold;
+	line-height: 56px;
+	margin: 15px 5px;
+}
+
+.mat-h2 {
+	font-size: 20px;
+	font-weight: 300;
+	line-height: 28px;
+	margin: 15px 0 25px;
+}
+
+.mat-header-start {
+	text-align: center;
+	margin: 50px 0 0;
+}
