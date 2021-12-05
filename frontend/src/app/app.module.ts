@@ -31,7 +31,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { locationsReducer } from './state/locations/locations.reducer';
 import { StoreModule } from '@ngrx/store';
-import { TabsBooksComponent } from './tabs/books/books.component';
 import { AuthService } from './auth/auth.service';
 import { FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './auth/auth.interceptor';
@@ -50,7 +49,6 @@ import { CreateExposureComponent } from './create/exposure/exposure.component';
     TabsHomeComponent,
     TabsLocationsComponent,
     TabsExposuresComponent,
-    TabsBooksComponent,
   ],
   imports: [
     FormsModule,

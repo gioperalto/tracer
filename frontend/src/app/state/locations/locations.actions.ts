@@ -3,7 +3,7 @@ import { Location } from '../../models/locations.model';
  
 export const addLocation = createAction(
   '[Location List] Add Location',
-  props<{ locationId: string }>()
+  props<{ location: Location }>()
 );
  
 export const removeLocation = createAction(

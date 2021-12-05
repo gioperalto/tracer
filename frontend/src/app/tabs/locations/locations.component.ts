@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Location } from 'src/app/models/locations.model';
 
 @Component({
@@ -9,4 +10,6 @@ import { Location } from 'src/app/models/locations.model';
 export class TabsLocationsComponent {
   @Input() locations: Location[] | null = [];
   displayedColumns: string[] = ['name', 'latitude', 'longitude', 'visited'];
+
+  constructor(private router: Router) {}
 }

@@ -23,7 +23,11 @@ export class LocationsService {
     location.longitude = loc.longitude;
     location.patient = patient;
 
+    console.log(location);
+
     await location.save();
+
+    return location;
   }
 
   async findAll(patientId: string): Promise<Location[]> {

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'tabs-exposures',
@@ -6,4 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./exposures.component.css']
 })
 export class TabsExposuresComponent {
+  constructor(private router: Router) {}
 }

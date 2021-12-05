@@ -19,8 +19,4 @@ export class AppComponent {
     this.auth.logout();
     this.router.navigate(['/']);
   }
-
-  goHome(): void {
-    this.router.navigate(['/']);
-  }
 }

@@ -1,4 +1,4 @@
-<mat-tab-group mat-stretch-tabs *ngIf="auth.loggedIn">
+<mat-tab-group mat-stretch-tabs [selectedIndex]="tabIndex" *ngIf="auth.loggedIn">
   <mat-tab>
     <ng-template mat-tab-label>
       <mat-icon class="example-tab-icon">house</mat-icon>
