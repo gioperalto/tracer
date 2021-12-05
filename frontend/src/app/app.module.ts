@@ -32,6 +32,12 @@ import { booksReducer } from './state/books/books.reducer';
 import { locationsReducer } from './state/locations/locations.reducer';
 import { StoreModule } from '@ngrx/store';
 import { TabsBooksComponent } from './tabs/books/books.component';
+import { AuthService } from './auth/auth.service';
+import { FormsModule } from '@angular/forms';
+
+export function tokenGetter() {
+  return localStorage.getItem('access_token');
+}
 
 @NgModule({
   declarations: [
@@ -45,6 +51,7 @@ import { TabsBooksComponent } from './tabs/books/books.component';
     TabsBooksComponent,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -66,7 +73,7 @@ import { TabsBooksComponent } from './tabs/books/books.component';
     MatInputModule,
     StoreModule.forRoot({ books: booksReducer, locations: locationsReducer }),
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

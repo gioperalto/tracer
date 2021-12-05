@@ -16,7 +16,10 @@
       </button>
       <span class="logo" (click)="goHome()">Tracer</span>
       <span class="example-spacer"></span>
-      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <button mat-icon-button routerLink="login" *ngIf="!auth.loggedIn">
+        Login
+      </button>
+      <button mat-icon-button (click)="logout()" *ngIf="auth.loggedIn">
         Logout
       </button>
     </mat-toolbar>
