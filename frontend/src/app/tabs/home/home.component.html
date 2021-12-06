@@ -1,21 +1,22 @@
 <div *ngIf="patient">
 	<mat-card class="example-card">
-		<mat-card-title>Contact Info</mat-card-title>
+		<mat-card-title>Profile</mat-card-title>
 		<mat-card-subtitle>Acct created on {{ patient.created | date }}</mat-card-subtitle>
 		<mat-card-content>
-			<mat-chip-list aria-label="Fish selection">
+			<mat-chip-list aria-label="Name">
 				<mat-chip>Name</mat-chip> <span class="right">{{ patient.firstName }} {{ patient.lastName }}</span>
 			</mat-chip-list>
-			<mat-chip-list aria-label="Fish selection">
+			<mat-chip-list aria-label="Phone number">
 				<mat-chip>Phone</mat-chip> <span class="right">{{ patient.phoneNumber }}</span>
 			</mat-chip-list>
-			<mat-chip-list aria-label="Fish selection">
+			<mat-chip-list aria-label="Email address">
 				<mat-chip>Email</mat-chip> <span class="right">{{ patient.email }}</span>
 			</mat-chip-list>
 		</mat-card-content>
 		<mat-divider inset></mat-divider>
 		<mat-card-actions>
 			<button color="primary" mat-raised-button>Update Info</button>
+			<button color="primary" mat-raised-button>Change Password</button>
 		</mat-card-actions>
 		<mat-card-footer>
 		</mat-card-footer>

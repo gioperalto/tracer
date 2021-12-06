@@ -1,8 +1,14 @@
 .example-card {
 	width: 300px;
-	margin: auto;
 	margin-top: 15px;
 	margin-bottom: 15px;
+	margin-left: 15px;
+}
+
+.example-card-long {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 15px;
 }
 
 .right {
