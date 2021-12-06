@@ -1,29 +1,28 @@
 <mat-card class="example-card">
-	<div>
+	<form class="example-form" (ngSubmit)="submit()">
 		<mat-card-title>Create Account</mat-card-title>
 		<mat-card-content>
-			<form class="example-form">
 				<mat-form-field class="example-full-width" appearance="fill">
 					<mat-label>First name</mat-label>
-					<input matInput>
+					<input matInput name="firstName" [(ngModel)]="firstName">
 				</mat-form-field>
 				<mat-form-field class="example-full-width" appearance="fill">
 					<mat-label>Last Name</mat-label>
-					<input matInput>
+					<input matInput name="lastName" [(ngModel)]="lastName">
 				</mat-form-field>
 				<mat-form-field class="example-full-width" appearance="fill">
 					<mat-label>Phone number</mat-label>
 					<span matPrefix>+1 &nbsp;</span>
-					<input type="tel" matInput placeholder="555-555-1234">
+					<input type="tel" matInput placeholder="555-555-1234" name="phoneNumber" [(ngModel)]="phoneNumber">
 					<mat-icon matSuffix>phone</mat-icon>
 				</mat-form-field>
 				<mat-form-field class="example-full-width" appearance="fill">
 					<mat-label>Email</mat-label>
-					<input matInput>
+					<input matInput name="email" [(ngModel)]="email">
 				</mat-form-field>
 				<mat-form-field class="example-full-width" appearance="fill">
 					<mat-label>Password</mat-label>
-					<input matInput [type]="hidePassword ? 'password' : 'text'">
+					<input matInput [type]="hidePassword ? 'password' : 'text'" name="password" [(ngModel)]="password">
 					<button mat-icon-button matSuffix (click)="toggleHidePassword($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
 						<mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
 					</button>
@@ -35,10 +34,9 @@
 						<mat-icon>{{hideConfirm ? 'visibility_off' : 'visibility'}}</mat-icon>
 					</button>
 				</mat-form-field>
-			</form>
 		</mat-card-content>
 		<mat-card-actions>
-			<button color="primary" mat-raised-button>Sign Up</button>
+			<button color="primary" mat-raised-button type="submit">Sign Up</button>
 		</mat-card-actions>
-	</div>
+	</form>
 </mat-card>

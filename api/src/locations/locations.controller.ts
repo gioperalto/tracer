@@ -10,7 +10,6 @@ export class LocationsController {
 	@UseGuards(JwtAuthGuard)
 	@Post()
   async create(@Request() req, @Body() createLocationDto: CreateLocationDto) {
-    console.log(`POST to api/locations received.`);
     return await this.locationsService.create(createLocationDto, req.user.userId);
   }
 

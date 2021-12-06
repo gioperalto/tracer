@@ -1,21 +1,23 @@
-<mat-card class="example-card">
-	<mat-card-title>Contact Info</mat-card-title>
-	<mat-card-subtitle>Acct created on Jul 1, 2021</mat-card-subtitle>
-	<mat-card-content>
-		<mat-chip-list aria-label="Fish selection">
-			<mat-chip>Name</mat-chip> <span class="right">John Doe</span>
-		</mat-chip-list>
-		<mat-chip-list aria-label="Fish selection">
-			<mat-chip>Phone</mat-chip> <span class="right">(777) 666-5555</span>
-		</mat-chip-list>
-		<mat-chip-list aria-label="Fish selection">
-			<mat-chip>Email</mat-chip> <span class="right">john.doe@gmail.com</span>
-		</mat-chip-list>
-	</mat-card-content>
-	<mat-divider inset></mat-divider>
-	<mat-card-actions>
-		<button color="primary" mat-raised-button>Update Info</button>
-	</mat-card-actions>
-	<mat-card-footer>
-	</mat-card-footer>
-</mat-card>
+<div *ngIf="patient">
+	<mat-card class="example-card">
+		<mat-card-title>Contact Info</mat-card-title>
+		<mat-card-subtitle>Acct created on {{ patient.created | date }}</mat-card-subtitle>
+		<mat-card-content>
+			<mat-chip-list aria-label="Fish selection">
+				<mat-chip>Name</mat-chip> <span class="right">{{ patient.firstName }} {{ patient.lastName }}</span>
+			</mat-chip-list>
+			<mat-chip-list aria-label="Fish selection">
+				<mat-chip>Phone</mat-chip> <span class="right">{{ patient.phoneNumber }}</span>
+			</mat-chip-list>
+			<mat-chip-list aria-label="Fish selection">
+				<mat-chip>Email</mat-chip> <span class="right">{{ patient.email }}</span>
+			</mat-chip-list>
+		</mat-card-content>
+		<mat-divider inset></mat-divider>
+		<mat-card-actions>
+			<button color="primary" mat-raised-button>Update Info</button>
+		</mat-card-actions>
+		<mat-card-footer>
+		</mat-card-footer>
+	</mat-card>
+</div>

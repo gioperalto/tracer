@@ -37,6 +37,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { CreateLocationComponent } from './create/location/location.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { CreateExposureComponent } from './create/exposure/exposure.component';
+import { patientsReducer } from './state/patients/patients.reducer';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,7 @@ import { CreateExposureComponent } from './create/exposure/exposure.component';
     MatSelectModule,
     MatInputModule,
     MatDatepickerModule,
-    StoreModule.forRoot({ locations: locationsReducer }),
+    StoreModule.forRoot({ patient: patientsReducer, locations: locationsReducer }),
   ],
   providers: [AuthService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]

@@ -1,9 +1,9 @@
 import { Exposure } from 'src/exposures/exposure.entity';
 import { Location } from 'src/locations/location.entity';
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, BaseEntity } from 'typeorm';
 
 @Entity()
-export class Patient {
+export class Patient extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
