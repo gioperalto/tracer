@@ -30,18 +30,20 @@ export class HomeComponent {
   ) {}
 
   ngOnInit() {
-    this.sub = this.route
-      .queryParams
-      .subscribe(params => {
-        // Defaults to 0 if no query param provided.
-        this.tabIndex = +params['tabIndex'] || 0;
-      });
-    this.patientService
-      .getPatient()
-      .subscribe((patient) => this.store.dispatch(getPatient({ patient })));
-    this.locationsService
-      .getLocations()
-      .subscribe((locations) => this.store.dispatch(getLocations({ locations })));
+    if (this.auth.loggedIn) {
+      this.sub = this.route
+        .queryParams
+        .subscribe(params => {
+          // Defaults to 0 if no query param provided.
+          this.tabIndex = +params['tabIndex'] || 0;
+        });
+      this.patientService
+        .getPatient()
+        .subscribe((patient) => this.store.dispatch(getPatient({ patient })));
+      this.locationsService
+        .getLocations()
+        .subscribe((locations) => this.store.dispatch(getLocations({ locations })));
+    }
   }
 
   goLogin(): void {

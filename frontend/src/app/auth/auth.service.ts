@@ -20,9 +20,18 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('access_token');
+    localStorage.removeItem('expiration');
   }
 
   public get loggedIn(): boolean {
-    return (localStorage.getItem('access_token') !== null);
+    const accessToken = localStorage.getItem('access_token');
+    const expiration = localStorage.getItem('expiration');
+
+    if (accessToken !== null && expiration !== null && Date.now() <= new Date(expiration).getTime()) {
+      return true;
+    }
+    
+    this.logout();
+    return false;
 	}
 }
