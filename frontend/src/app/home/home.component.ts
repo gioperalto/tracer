@@ -9,8 +9,8 @@ import { PatientsService } from '../state/patients/patients.service';
 import { selectPatient } from '../state/patients/patients.selectors';
 import { getPatient } from '../state/patients/patients.actions';
 import { ExposuresService } from '../state/exposures/exposures.service';
-import { getExposures } from '../state/exposures/exposures.actions';
-import { selectExposures } from '../state/exposures/exposures.selectors';
+import { getExposures, getIncidents } from '../state/exposures/exposures.actions';
+import { selectExposures, selectIncidents } from '../state/exposures/exposures.selectors';
 
 @Component({
   selector: 'home',
@@ -23,6 +23,7 @@ export class HomeComponent {
   patient$ = this.store.select(selectPatient);
   locations$ = this.store.select(selectLocations);
   exposures$ = this.store.select(selectExposures);
+  incidents$ = this.store.select(selectIncidents);
 
   constructor(
     public auth: AuthService,
@@ -51,6 +52,9 @@ export class HomeComponent {
       this.exposuresService
         .getExposures()
         .subscribe((exposures) => this.store.dispatch(getExposures({ exposures })));
+      this.exposuresService
+        .getIncidents()
+        .subscribe((incidents) => this.store.dispatch(getIncidents({ incidents })));
     }
   }
 

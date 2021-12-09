@@ -22,17 +22,19 @@
 		</mat-card-footer>
 	</mat-card>
 	<mat-card class="example-card-long">
-		<mat-card-title>Exposure Status</mat-card-title>
-		<mat-card-content>
-			<div *ngFor="">
-				<!-- <mat-card>
-					<mat-card-title>a</mat-card-title>
-					<mat-card-subtitle>b<mat-card-subtitle>
-					<mat-card-content>
-						<p>You may have been exposed at this event.</p>
-					</mat-card-content>
-				</mat-card> -->
-			</div>
-		</mat-card-content>
+		<div *ngIf="incidents">
+			<mat-card-title>Exposure Status</mat-card-title>
+			<mat-card-subtitle *ngIf="incidents.length == 0">You haven't been exposed at any events.</mat-card-subtitle>
+			<mat-card-content>
+				<div *ngFor="let incident of incidents;">
+					<mat-list *ngFor="let location of incident.locations;">
+						<mat-list-item>
+							You were potentially exposed at <mat-chip class="margin" color="primary" selected>{{ location.name }}</mat-chip> on 
+						{{ location.visited | date }}.
+						</mat-list-item>
+					</mat-list>
+				</div>
+			</mat-card-content>
+		</div>
 	</mat-card>
 </div>

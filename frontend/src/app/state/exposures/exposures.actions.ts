@@ -12,7 +12,7 @@ export const getExposures = createAction(
   props<{ exposures: ReadonlyArray<Exposure> }>()
 );
 
-export const getExposees = createAction(
-  '[Exposee List/API] Get Exposee Success',
-  props<{ exposees: ReadonlyArray<Location> }>()
+export const getIncidents = createAction(
+  '[Incident List/API] Get Incident Success',
+  props<{ incidents: ReadonlyArray<Exposure> }>()
 );

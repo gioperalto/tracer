@@ -33,7 +33,6 @@ export class LocationsService {
     }
 
     await location.save();
-
     return location;
   }
 
@@ -43,6 +42,7 @@ export class LocationsService {
     .leftJoin('location.patients', 'patient')
     .where('patient.id = :id', { id: patientId })
     .getMany();
+
     return locations;
   }
 
@@ -54,7 +54,7 @@ export class LocationsService {
     .leftJoin('location.patients', 'patient')
     .where('patient.id != :id and location.visited >= :time', { id: patientId, time: weekAgo })
     .getMany();
-
+    
     return locations;
   }
 

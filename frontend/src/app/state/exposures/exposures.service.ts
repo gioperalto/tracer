@@ -43,11 +43,11 @@ export class ExposuresService {
       .pipe(map((exposures) => exposures.items || []));
   }
 
-  getExposees(id: string): Observable<Array<Location>> {
+  getIncidents(): Observable<Array<Exposure>> {
     return this.http
-      .get<{ items: Location[] }>(
-        `${apiUrl}/api/exposures/${id}`
+      .get<{ items: Exposure[] }>(
+        `${apiUrl}/api/exposures/incidents`
       )
-      .pipe(map((exposees) => exposees.items || []));
+      .pipe(map((incidents) => incidents.items || []));
   }
 }

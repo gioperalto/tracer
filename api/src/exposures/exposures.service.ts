@@ -42,6 +42,16 @@ export class ExposuresService {
     return exposures;
   }
 
+  async findExposedPatients(patientId: string): Promise<Exposure[]> {
+    const exposures = await this.exposuresRepository
+    .createQueryBuilder('exposure')
+    .innerJoinAndSelect('exposure.locations', 'location')
+    .innerJoin('location.patients', 'patient')
+    .where('patient.id = :id and exposure.patientId != :expId', { id: patientId, expId: patientId })
+    .getMany();
+    return exposures;
+  }
+
   findOne(id: string): Promise<Exposure> {
     return this.exposuresRepository.findOne(id);
   }

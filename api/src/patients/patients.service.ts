@@ -22,7 +22,6 @@ export class PatientsService {
     patient.created = pat.created;
 
     await patient.save();
-
     return patient;
   }
 

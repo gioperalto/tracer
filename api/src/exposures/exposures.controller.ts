@@ -22,13 +22,12 @@ export class ExposuresController {
     };
   }
 
-  // @UseGuards(JwtAuthGuard)
-  // @Get(':id')
-  // async getExposees(@Request() req, @Param('id') id: string) {
-  //   const exposure = await this.exposuresService.findOne(id);
-  //   return {
-  //     type: 'locations',
-  //     items: await this.exposuresService.findExposees(req.user.userId, exposure.occurrence)
-  //   };
-  // }
+  @UseGuards(JwtAuthGuard)
+  @Get('incidents')
+  async getExposees(@Request() req) {
+    return {
+      type: 'exposures',
+      items: await this.exposuresService.findExposedPatients(req.user.userId)
+    };
+  }
 }

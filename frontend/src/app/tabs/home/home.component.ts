@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Exposure } from 'src/app/models/exposures.model';
 import { Patient } from 'src/app/models/patients.model';
 
 @Component({
@@ -15,4 +16,5 @@ export class TabsHomeComponent {
     password: '',
     created: new Date()
   };
+  @Input() incidents: Exposure[] | null = [];
 }
