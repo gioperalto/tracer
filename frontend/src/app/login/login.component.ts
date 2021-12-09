@@ -27,7 +27,7 @@ export class LoginComponent {
       .pipe(first())
       .subscribe({
         error: (e) => console.log('Could not authenticate'),
-        complete: () => this.router.navigate(['']),
+        complete: () => this.router.navigate(['/']),
       });
   }
 }

@@ -52,9 +52,7 @@ export class CreateAccountComponent {
     .subscribe((patient) => this.store.dispatch(addPatient({ patient })));
     this.auth.login(this.email, this.password)
     .pipe(first())
-    .subscribe({
-      error: (e) => console.log('Could not authenticate'),
-      complete: () => this.router.navigate(['']),
-    });
+    .subscribe({ error: (e) => console.log('Could not authenticate') });
+    this.router.navigate(['/'])
   }
 }

@@ -21,8 +21,6 @@ export class PatientsService {
     patient.password = pat.password;
     patient.created = pat.created;
 
-    console.log(patient);
-
     await patient.save();
 
     return patient;

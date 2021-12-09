@@ -1,5 +1,5 @@
 import { Patient } from 'src/patients/patient.entity';
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, BaseEntity } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, ManyToMany, JoinTable } from 'typeorm';
 
 @Entity()
 export class Location extends BaseEntity {
@@ -18,6 +18,7 @@ export class Location extends BaseEntity {
   @Column({ type: 'timestamp' })
   visited: Date;
 
-  @ManyToOne(() => Patient, patient => patient.locations)
-  patient: Patient;
+  @ManyToMany(() => Patient)
+    @JoinTable()
+    patients: Patient[];
 }

@@ -8,6 +8,7 @@ import { Exposure } from './exposures/exposure.entity';
 import { AuthModule } from './auth/auth.module';
 import { LocationsModule } from './locations/locations.module';
 import { PatientsModule } from './patients/patients.module';
+import { ExposuresModule } from './exposures/exposures.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { PatientsModule } from './patients/patients.module';
     AuthModule,
     LocationsModule,
     PatientsModule,
+    ExposuresModule,
   ],
   controllers: [AppController],
   providers: [AppService],

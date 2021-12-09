@@ -1,6 +1,6 @@
 import { Exposure } from 'src/exposures/exposure.entity';
 import { Location } from 'src/locations/location.entity';
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, BaseEntity } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, BaseEntity, ManyToOne, ManyToMany } from 'typeorm';
 
 @Entity()
 export class Patient extends BaseEntity {
@@ -24,9 +24,6 @@ export class Patient extends BaseEntity {
 
   @Column({ type: 'timestamp' })
   created: Date;
-
-  @OneToMany(() => Location, location => location.patient)
-  locations: Location[];
 
   @OneToMany(() => Exposure, exposure => exposure.patient)
   exposures: Exposure[];

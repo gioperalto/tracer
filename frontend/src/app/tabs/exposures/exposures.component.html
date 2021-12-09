@@ -1,41 +1,26 @@
-<mat-grid-list cols="4" rowHeight="120px">
-	<mat-grid-tile>
-	  <mat-card class="example-card">
-			<mat-card-subtitle>Nov 9, 2021</mat-card-subtitle>
-			<mat-card-content>
-				<p>5 contacts have been notified of possible exposure.</p>
-			</mat-card-content>
-	  </mat-card>
-	</mat-grid-tile>
-	
-	<mat-grid-tile>
-	  <mat-card class="example-card">
-			<mat-card-subtitle>Oct 19, 2021</mat-card-subtitle>
-			<mat-card-content>
-				<p>11 contacts have been notified of possible exposure.</p>
-			</mat-card-content>
-	  </mat-card>
-	</mat-grid-tile>
-
-	<mat-grid-tile>
-	  <mat-card class="example-card">
-			<mat-card-subtitle>Sep 15, 2021</mat-card-subtitle>
-			<mat-card-content>
-				<p>3 contacts have been notified of possible exposure.</p>
-			</mat-card-content>
-	  </mat-card>
-	</mat-grid-tile>
-
-	<mat-grid-tile>
-	  <mat-card class="example-card">
-			<mat-card-subtitle>Jul 21, 2021</mat-card-subtitle>
-			<mat-card-content>
-				<p>No contacts have been notified of possible exposure.</p>
-			</mat-card-content>
-	  </mat-card>
-	</mat-grid-tile>
+<div *ngIf="exposures">
+<mat-grid-list cols="4" rowHeight="200px" *ngIf="exposures.length > 0">
+	<div *ngFor="let exposure of exposures;">
+		<mat-grid-tile>
+			<mat-card class="example-card">
+				<mat-card-subtitle>{{ exposure.occurrence | date }}</mat-card-subtitle>
+				<mat-card-content *ngIf="exposure.locations.length == 0">
+					<p>No other patients were in proximity to you within seven days of reported exposure.</p>
+				</mat-card-content>
+				<mat-card-content *ngIf="exposure.locations.length > 0">
+					<p>Other patients may have been exposed at the locations below.</p>
+				</mat-card-content>
+				<mat-card-actions *ngIf="exposure.locations.length > 0">
+					<mat-chip-list *ngFor="let location of exposure.locations;">
+						<mat-chip color="primary" selected>{{ location.name }}</mat-chip>
+					</mat-chip-list>
+				</mat-card-actions>
+			</mat-card>
+		</mat-grid-tile>
+	</div>
 </mat-grid-list>
-
 <mat-card>
+	<mat-card-title *ngIf="exposures.length == 0">No reported exposures.</mat-card-title>
 	<button color="primary" mat-raised-button routerLink="report/exposure">Report Exposure</button>
 </mat-card>
+</div>

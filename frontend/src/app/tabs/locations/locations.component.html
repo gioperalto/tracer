@@ -1,5 +1,5 @@
 <div *ngIf="locations">
-  <table mat-table [dataSource]="locations" class="mat-elevation-z8">
+  <table mat-table [dataSource]="locations" class="mat-elevation-z8" *ngIf="locations.length > 0">
 
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Name </th>
@@ -26,6 +26,7 @@
   </table>
   
   <mat-card>
+    <mat-card-title *ngIf="locations.length == 0">No visited locations have been added.</mat-card-title>
     <button color="primary" mat-raised-button routerLink="add/location">Add Location</button>
   </mat-card>
 </div>

@@ -22,7 +22,7 @@
       Exposures
     </ng-template>
 
-    <tabs-exposures></tabs-exposures>
+    <tabs-exposures [exposures]="exposures$ | async"></tabs-exposures>
   </mat-tab>
 </mat-tab-group>
 
