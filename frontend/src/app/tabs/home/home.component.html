@@ -1,21 +1,40 @@
-<mat-card class="example-card">
-	<mat-card-title>Contact Info</mat-card-title>
-	<mat-card-subtitle>Acct created on Jul 1, 2021</mat-card-subtitle>
-	<mat-card-content>
-		<mat-chip-list aria-label="Fish selection">
-			<mat-chip>Name</mat-chip> <span class="right">John Doe</span>
-		</mat-chip-list>
-		<mat-chip-list aria-label="Fish selection">
-			<mat-chip>Phone</mat-chip> <span class="right">(777) 666-5555</span>
-		</mat-chip-list>
-		<mat-chip-list aria-label="Fish selection">
-			<mat-chip>Email</mat-chip> <span class="right">john.doe@gmail.com</span>
-		</mat-chip-list>
-	</mat-card-content>
-	<mat-divider inset></mat-divider>
-	<mat-card-actions>
-		<button color="primary" mat-raised-button>Update Info</button>
-	</mat-card-actions>
-	<mat-card-footer>
-	</mat-card-footer>
-</mat-card>
+<div *ngIf="patient">
+	<mat-card class="example-card">
+		<mat-card-title>Profile</mat-card-title>
+		<mat-card-subtitle>Acct created on {{ patient.created | date }}</mat-card-subtitle>
+		<mat-card-content>
+			<mat-chip-list aria-label="Name">
+				<mat-chip>Name</mat-chip> <span class="right">{{ patient.firstName }} {{ patient.lastName }}</span>
+			</mat-chip-list>
+			<mat-chip-list aria-label="Phone number">
+				<mat-chip>Phone</mat-chip> <span class="right">{{ patient.phoneNumber }}</span>
+			</mat-chip-list>
+			<mat-chip-list aria-label="Email address">
+				<mat-chip>Email</mat-chip> <span class="right">{{ patient.email }}</span>
+			</mat-chip-list>
+		</mat-card-content>
+		<mat-divider inset></mat-divider>
+		<mat-card-actions>
+			<button color="primary" mat-raised-button>Update Info</button>
+			<button color="primary" mat-raised-button>Change Password</button>
+		</mat-card-actions>
+		<mat-card-footer>
+		</mat-card-footer>
+	</mat-card>
+	<mat-card class="example-card-long">
+		<div *ngIf="incidents">
+			<mat-card-title>Exposure Status</mat-card-title>
+			<mat-card-subtitle *ngIf="incidents.length == 0">You haven't been exposed at any events.</mat-card-subtitle>
+			<mat-card-content>
+				<div *ngFor="let incident of incidents;">
+					<mat-list *ngFor="let location of incident.locations;">
+						<mat-list-item>
+							You were potentially exposed at <mat-chip class="margin" color="primary" selected>{{ location.name }}</mat-chip> on 
+						{{ location.visited | date }}.
+						</mat-list-item>
+					</mat-list>
+				</div>
+			</mat-card-content>
+		</div>
+	</mat-card>
+</div>

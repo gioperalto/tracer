@@ -8,6 +8,7 @@ import { PatientsModule } from 'src/patients/patients.module';
 @Module({
   imports: [TypeOrmModule.forFeature([Location]), PatientsModule],
   providers: [LocationsService],
+  exports: [LocationsService],
   controllers: [LocationsController],
 })
 export class LocationsModule {}

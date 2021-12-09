@@ -1,8 +1,9 @@
 import { Patient } from 'src/patients/patient.entity';
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, ManyToMany, JoinTable } from 'typeorm';
+import { Location } from 'src/locations/location.entity';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, BaseEntity, ManyToMany, JoinTable } from 'typeorm';
 
 @Entity()
-export class Exposure {
+export class Exposure extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -12,7 +13,7 @@ export class Exposure {
   @ManyToOne(() => Patient, patient => patient.exposures)
   patient: Patient;
 
-  @ManyToMany(() => Patient)
+  @ManyToMany(() => Location)
     @JoinTable()
-    patients: Patient[];
+    locations: Location[];
 }

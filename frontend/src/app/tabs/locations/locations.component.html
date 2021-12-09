@@ -1,28 +1,21 @@
 <div *ngIf="locations">
-  <table mat-table [dataSource]="locations" class="mat-elevation-z8">
+  <table mat-table [dataSource]="locations" class="mat-elevation-z8" *ngIf="locations.length > 0">
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-  
-    <!-- Position Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Name </th>
       <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
     </ng-container>
   
-    <!-- Name Column -->
     <ng-container matColumnDef="latitude">
       <th mat-header-cell *matHeaderCellDef> Latitude </th>
       <td mat-cell *matCellDef="let element"> {{ element.latitude | number }} </td>
     </ng-container>
   
-    <!-- Weight Column -->
     <ng-container matColumnDef="longitude">
       <th mat-header-cell *matHeaderCellDef> Longitude </th>
       <td mat-cell *matCellDef="let element"> {{ element.longitude | number }} </td>
     </ng-container>
   
-    <!-- Symbol Column -->
     <ng-container matColumnDef="visited">
       <th mat-header-cell *matHeaderCellDef> Visited </th>
       <td mat-cell *matCellDef="let element"> {{ element.visited | date }} </td>
@@ -33,6 +26,7 @@
   </table>
   
   <mat-card>
+    <mat-card-title *ngIf="locations.length == 0">You haven't added any visited locations.</mat-card-title>
     <button color="primary" mat-raised-button routerLink="add/location">Add Location</button>
   </mat-card>
 </div>

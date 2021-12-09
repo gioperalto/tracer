@@ -1,19 +1,17 @@
 <mat-card class="example-card">
-	<div>
+	<form class="example-form" (ngSubmit)="submit()">
 		<mat-card-title>Report Exposure</mat-card-title>
 		<mat-card-content>
-			<form class="example-form">
 				<h3>When did the exposure happen?</h3>
 				<mat-form-field appearance="fill">
 					<mat-label>Date of occurrence</mat-label>
-					<input matInput [matDatepicker]="picker">
+					<input matInput [matDatepicker]="picker" name="occurrence" [(ngModel)]="occurrence">
 					<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
 					<mat-datepicker #picker></mat-datepicker>
 				</mat-form-field>
-			</form>
 		</mat-card-content>
 		<mat-card-actions>
-			<button color="primary" mat-raised-button>Submit</button>
+			<button color="primary" mat-raised-button type="submit">Submit</button>
 		</mat-card-actions>
-	</div>
+	</form>
 </mat-card>

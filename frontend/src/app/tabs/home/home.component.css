@@ -1,10 +1,30 @@
 .example-card {
-	width: 300px;
-	margin: auto;
+	min-width: 300px;
+	min-height: 250px;
 	margin-top: 15px;
 	margin-bottom: 15px;
+	margin-left: 15px;
+	display: inline-grid;
+}
+
+.example-card-long {
+	min-width: 600px;
+	min-height: 250px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 15px;
+	display: inline-grid;
 }
 
 .right {
 	margin-left: auto;
+}
+
+.margin {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.margin-left {
+	margin-left: 5px;
 }
