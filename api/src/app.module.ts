@@ -9,16 +9,17 @@ import { AuthModule } from './auth/auth.module';
 import { LocationsModule } from './locations/locations.module';
 import { PatientsModule } from './patients/patients.module';
 import { ExposuresModule } from './exposures/exposures.module';
+import { dbConstants } from './config/constants';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'password',
-      database: 'tracer',
+      host: dbConstants.host,
+      port: dbConstants.port,
+      username: dbConstants.username,
+      password: dbConstants.password,
+      database: dbConstants.database,
       entities: [Patient, Location, Exposure],
       synchronize: true,
     }),
