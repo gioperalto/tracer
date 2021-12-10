@@ -15,12 +15,26 @@ export class CreateLocationComponent {
   latitude = 0.0;
   longitude = 0.0;
   visited = new Date();
+  coords: any;
 
   constructor(
     private router: Router, 
     private store: Store,
     private locationsService: LocationsService,
-  ) {}
+  ) {
+    this.coords = {};
+  }
+
+  async findCoordinates(event: any) {
+    event.preventDefault();
+    this.locationsService.findCoordinates(this.name)
+    .subscribe((coords) => {
+      this.coords = coords;
+      const location = this.coords.results[0].geometry.location;
+      this.latitude = location.lat;
+      this.longitude = location.lng;
+    });
+  }
 
   public submit() {
     const loc: Location = {

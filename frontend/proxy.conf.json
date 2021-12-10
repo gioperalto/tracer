@@ -1,0 +1,7 @@
+{
+  "/api/geocode": {
+    "target": "https://maps.googleapis.com/maps",
+    "secure": true,
+    "changeOrigin": true
+  }
+}
