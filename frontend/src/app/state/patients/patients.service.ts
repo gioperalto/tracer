@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { of, retry, catchError, Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Patient } from 'src/app/models/patients.model';
-import { apiUrl } from '../../../environments/environment';
+import { apis } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class PatientsService {
@@ -29,7 +29,7 @@ export class PatientsService {
   addPatient(patient: Patient): Observable<Patient> {
     console.log(patient);
     return this.http
-      .post<Patient>(`${apiUrl}/api/patients`, patient)
+      .post<Patient>(`${apis.tracer.url}/api/patients`, patient)
       .pipe(
         
         catchError( this.handleError )
@@ -39,7 +39,7 @@ export class PatientsService {
   getPatient(): Observable<Patient> {
     return this.http
       .get<Patient>(
-        `${apiUrl}/api/patients`
+        `${apis.tracer.url}/api/patients`
       );
   }
 }

@@ -22,6 +22,14 @@ export class CreateLocationComponent {
     private locationsService: LocationsService,
   ) {}
 
+  findCoordinates(event: any) {
+    event.preventDefault();
+    this.locationsService.findCoordinates(this.name)
+    .subscribe((coords) => {
+      console.log(coords);
+    });
+  }
+
   public submit() {
     const loc: Location = {
       name: this.name,

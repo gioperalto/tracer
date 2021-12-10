@@ -6,7 +6,17 @@ export const environment = {
   production: false
 };
 
-export const apiUrl = 'http://localhost:3000';
+export const apis = {
+  tracer: { 
+    url: 'http://localhost:3000'
+  },
+  google: {
+    geocoding: {
+      url: 'http://localhost:4200/api/geocode',
+      key: 'GEOCODING-API-KEY'
+    }
+  }
+};
 
 /*
  * For easier debugging in development mode, you can import the following file

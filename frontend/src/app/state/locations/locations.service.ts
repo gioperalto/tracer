@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
  
 import { of, retry, catchError, Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { apiUrl } from '../../../environments/environment';
+import { apis } from '../../../environments/environment';
 import { Location } from '../../models/locations.model';
 
 @Injectable({ providedIn: 'root' })
@@ -29,8 +29,17 @@ export class LocationsService {
   addLocation(location: Location): Observable<Location> {
     console.log(location);
     return this.http
-      .post<Location>(`${apiUrl}/api/locations`, location)
+      .post<Location>(`${apis.tracer.url}/api/locations`, location)
       .pipe(
+        catchError( this.handleError )
+      );
+  }
+
+  findCoordinates(address: string) {
+    return this.http
+      .get(
+        `${apis.google.geocoding.url}/json?address=${address}&key=${apis.google.geocoding.key}`
+      ).pipe(
         catchError( this.handleError )
       );
   }
@@ -38,7 +47,7 @@ export class LocationsService {
   getLocations(): Observable<Array<Location>> {
     return this.http
       .get<{ items: Location[] }>(
-        `${apiUrl}/api/locations`
+        `${apis.tracer.url}/api/locations`
       )
       .pipe(map((locations) => locations.items || []));
   }

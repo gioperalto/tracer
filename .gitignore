@@ -39,6 +39,7 @@
 !.vscode/extensions.json
 
 # Frontend
+**/api-keys.ts
 
 # compiled output
 /frontend/dist
