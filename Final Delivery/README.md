@@ -66,7 +66,7 @@ Patients can add previously visited locations to the "Locations" page. This will
 ![Alt](/images/locations-page.png "Locations Page")
 
 ## Exposures Page
-If a patient has tested positive for COVID-19, they can report this on the "Exposures" page. By reporting an exposure, Tracer will notify all other patients that were at the same place on the same day within the past week of the catching the virus.
+If a patient has tested positive for COVID-19, they can report this on the "Exposures" page. By reporting an exposure, Tracer will notify all other patients that were at the same place on the same day within the past week of catching the virus.
 ![Alt](/images/exposures-page.png "Exposures Page")
 
 ## Home Page (User 2)
