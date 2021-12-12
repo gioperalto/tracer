@@ -7,7 +7,7 @@ Tracer is a COVID-19 contact tracing application designed for patients (users) t
 This app is decoupled, meaning the frontend, backend, and database, of the application can live independently. However, instead of putting the frontend and API subdomains into separate repository it made more sense to consolidate them. The app also uses the Google Maps Geocoding API and provides the ability for a user to populate the latitude/longitude data based on the location name/address.
 
 ### Backend
-[NodeJS] (https://nodejs.org/en/) - This project was built using Node v16.13.0
+[NodeJS](https://nodejs.org/en/) - This project was built using Node v16.13.0
 [NestJS](https://nestjs.com/) - NestJS is a NodeJS framework that fully supports TypeScript and uses Express under the hood.
 [TypeORM](https://typeorm.io/) with MySQL - NestJS has TypeORM support, which allows one to use object-relational mapping as a way to interact with a relational DB without having to use SQL directly.
 
