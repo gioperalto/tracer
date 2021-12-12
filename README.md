@@ -12,13 +12,13 @@ This app is decoupled, meaning the frontend, backend, and database, of the appli
 - [TypeORM](https://typeorm.io/) with MySQL - NestJS has TypeORM support, which allows one to use object-relational mapping as a way to interact with a relational DB without having to use SQL directly.
 
 ### Frontend
-- [AngularJS](https://angularjs.org/) - The project was build using Angular v13.0.1
+- [AngularJS](https://angularjs.org/) - The project was built using Angular v13.0.1
 - [Angular Material](https://material.angular.io/) - Angular Material is Material design applied to AngularJS. It contains a myriad of components and style options for an elegant user experience.
 
 ## Startup (Initialization)
 
 ### Prereqs
-1. You'll need [NPM](https://www.npmjs.com/) to install dependcies and launch the API
+1. You'll need [NPM](https://www.npmjs.com/) to install dependencies and launch the API
 2. You'll also need [Angular CLI](https://angular.io/cli) to launch the UI
 3. You may want to configure the JWT secret in `api/src/auth/constants.ts`
 
