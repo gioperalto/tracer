@@ -1,3 +1,4 @@
 .example-card {
+	width: inherit;
 	margin: 5px;
 }

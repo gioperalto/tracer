@@ -13,24 +13,17 @@
 				<mat-chip>Email</mat-chip> <span class="right">{{ patient.email }}</span>
 			</mat-chip-list>
 		</mat-card-content>
-		<mat-divider inset></mat-divider>
-		<mat-card-actions>
-			<button color="primary" mat-raised-button>Update Info</button>
-			<button color="primary" mat-raised-button>Change Password</button>
-		</mat-card-actions>
-		<mat-card-footer>
-		</mat-card-footer>
 	</mat-card>
 	<mat-card class="example-card-long">
 		<div *ngIf="incidents">
 			<mat-card-title>Exposure Status</mat-card-title>
 			<mat-card-subtitle *ngIf="incidents.length == 0">You haven't been exposed at any events.</mat-card-subtitle>
-			<mat-card-content>
+			<mat-card-content *ngIf="incidents.length > 0">
 				<div *ngFor="let incident of incidents;">
 					<mat-list *ngFor="let location of incident.locations;">
 						<mat-list-item>
-							You were potentially exposed at <mat-chip class="margin" color="primary" selected>{{ location.name }}</mat-chip> on 
-						{{ location.visited | date }}.
+							<span style="display: block;">You were potentially exposed at&nbsp;<mat-chip color="primary" selected>{{ location.name }}</mat-chip>&nbsp;on 
+						{{ location.visited | date }}.</span>
 						</mat-list-item>
 					</mat-list>
 				</div>
