@@ -4,7 +4,7 @@ Tracer is a COVID-19 contact tracing application designed for patients (users) t
 
 ## Tech stack
 
-This app is decoupled, meaning the frontend, backend, and database, of the application can live independently. However, instead of putting the frontend and API subdomains into separate repository it made more sense to consolidate them.
+This app is decoupled, meaning the frontend, backend, and database, of the application can live independently. However, instead of putting the frontend and API subdomains into separate repository it made more sense to consolidate them. The app also uses the Google Maps Geocoding API and provides the ability for a user to populate the latitude/longitude data based on the location name/address.
 
 ### Backend
 [NodeJS] (https://nodejs.org/en/) - This project was built using Node v16.13.0
@@ -25,7 +25,7 @@ This app is decoupled, meaning the frontend, backend, and database, of the appli
 ### API (NestJS)
 1. Navigate to the `api` folder
 2. Run `npm install`
-2. Run `npm start` to launch the API
+2. Run `npm start` (prod) or `npm run start:dev` (dev) to launch the API
 5. The API will be available at http://localhost:3000
 
 ### Database (MySQL)
@@ -38,6 +38,20 @@ This app is decoupled, meaning the frontend, backend, and database, of the appli
 2. Run `npm install`
 2. Run `ng serve` to launch the UI
 5. The API will be available at http://localhost:4200
+
+### Google Maps (Geocoding) API
+1. Set up a Google Cloud Platform project (if you don't have one already)
+2. Generate a Geocoding API key (if you don't have one already)
+
+### Configuration
+Go into `frontend/environments` and update:
+  - `frontend/environments/environment.ts`
+  - `frontend/environments/environment.prod.ts`
+
+These files contain configuration information for both the Tracer API and the Google Geocoding API. In development, the Tracer API will point to `http://localhost:3000` (default URL).
+
+The `environment.ts` files will look like this (image below). Replace `GEOCODING-API-KEY` with your API key.
+![Alt](/images/google-maps-config.png "Google Maps configuration")
 
 ## Splash Page
 By clicking "Get Started" or "Login" a patient can create an account if they do not have one already.
