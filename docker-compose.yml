@@ -1,0 +1,36 @@
+networks:
+  tracer:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.0.0/24
+
+services:
+  server:
+    hostname: server
+    container_name: server
+    depends_on:
+      - db
+    build:
+      context: ./
+      dockerfile: ./docker-files/server/Dockerfile
+    ports:
+      - "3000:80"
+      - "443:443"
+    networks:
+      tracer:
+        ipv4_address: 10.0.0.8
+
+  db:
+    hostname: db
+    container_name: db
+    build:
+      context: ./
+      dockerfile: ./docker-files/db/Dockerfile
+    ports:
+      - "3306:3306"
+    networks:
+      tracer:
+        ipv4_address: 10.0.0.2
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
