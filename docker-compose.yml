@@ -6,24 +6,37 @@ networks:
         - subnet: 10.0.0.0/24
 
 services:
-  server:
-    hostname: server
-    container_name: server
+  tracer-frontend:
+    hostname: tracer-frontend
+    container_name: tracer-frontend
     depends_on:
-      - db
+      - tracer-api
     build:
       context: ./
-      dockerfile: ./docker-files/server/Dockerfile
+      dockerfile: ./docker-files/frontend/Dockerfile
     ports:
-      - "3000:80"
-      - "443:443"
+      - "4200:4200"
     networks:
       tracer:
-        ipv4_address: 10.0.0.8
+        ipv4_address: 10.0.0.16
 
-  db:
-    hostname: db
-    container_name: db
+  tracer-api:
+    hostname: tracer-api
+    container_name: tracer-api
+    depends_on:
+      - tracer-db
+    build:
+      context: ./
+      dockerfile: ./docker-files/api/Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      tracer:
+        ipv4_address: 10.0.0.14
+
+  tracer-db:
+    hostname: tracer-db
+    container_name: tracer-db
     build:
       context: ./
       dockerfile: ./docker-files/db/Dockerfile
@@ -31,6 +44,6 @@ services:
       - "3306:3306"
     networks:
       tracer:
-        ipv4_address: 10.0.0.2
+        ipv4_address: 10.0.0.12
     environment:
-      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}

@@ -1,5 +1,5 @@
 export const dbConstants = {
-	host: 'localhost',
+	host: 'tracer-db',
 	port: 3306,
 	username: 'root',
 	password: 'password',

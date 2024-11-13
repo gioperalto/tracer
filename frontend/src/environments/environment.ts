@@ -3,10 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
-};
-
-export const apis = {
+  production: false,
   tracer: { 
     url: 'http://localhost:3000'
   },

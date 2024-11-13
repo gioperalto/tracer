@@ -5,16 +5,16 @@ FROM node:16-alpine
 WORKDIR /app
 
 # Copy package.json and package-lock.json (if available)
-COPY package*.json ./
+COPY api/package*.json ./
 
 # Install dependencies
 RUN npm install
 
 # Copy the rest of the application code
-COPY . .
+COPY api .
 
 # Expose the port your app listens on
 EXPOSE 3000
 
 # Start the application
-CMD ["node", "app.js"] 
+CMD ["npm", "run", "start"] 
