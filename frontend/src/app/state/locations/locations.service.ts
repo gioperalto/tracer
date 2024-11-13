@@ -47,7 +47,7 @@ export class LocationsService {
   getLocations(): Observable<Array<Location>> {
     return this.http
       .get<{ items: Location[] }>(
-        `${apis.tracer.url}/api/locations`
+        `${environment.tracer.url}/api/locations`
       )
       .pipe(map((locations) => locations.items || []));
   }

@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { map, Observable } from "rxjs";
-import { apis } from "src/environments/environment";
+import { environment } from "src/environments/environment";
 
 @Injectable()
 export class AuthService {
@@ -9,7 +9,7 @@ export class AuthService {
 
   login(username: string, password: string): Observable<boolean> {
     return this.client.post<{ access_token: string, expiration: string }>(
-      `${apis.tracer.url}/auth/login`, { username: username, password: password }
+      `${environment.tracer.url}/auth/login`, { username: username, password: password }
     ).pipe(
       map(result => {
         localStorage.setItem('access_token', result.access_token);

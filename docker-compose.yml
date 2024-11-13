@@ -37,9 +37,7 @@ services:
   tracer-db:
     hostname: tracer-db
     container_name: tracer-db
-    build:
-      context: ./
-      dockerfile: ./docker-files/db/Dockerfile
+    image: mysql:8.2
     ports:
       - "3306:3306"
     networks:
