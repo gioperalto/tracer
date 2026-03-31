@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
  
 import { of, retry, catchError, Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { apis } from '../../../environments/environment';
+import { environment } from '../../../environments/environment';
 import { Exposure } from '../../models/exposures.model';
 
 @Injectable({ providedIn: 'root' })
@@ -29,7 +29,7 @@ export class ExposuresService {
   addExposure(exposure: Exposure): Observable<Exposure> {
     console.log(exposure);
     return this.http
-      .post<Exposure>(`${apis.tracer.url}/api/exposures`, exposure)
+      .post<Exposure>(`${environment.tracer.url}/api/exposures`, exposure)
       .pipe(
         catchError( this.handleError )
       );
@@ -38,7 +38,7 @@ export class ExposuresService {
   getExposures(): Observable<Array<Exposure>> {
     return this.http
       .get<{ items: Exposure[] }>(
-        `${apis.tracer.url}/api/exposures`
+        `${environment.tracer.url}/api/exposures`
       )
       .pipe(map((exposures) => exposures.items || []));
   }
@@ -46,7 +46,7 @@ export class ExposuresService {
   getIncidents(): Observable<Array<Exposure>> {
     return this.http
       .get<{ items: Exposure[] }>(
-        `${apis.tracer.url}/api/exposures/incidents`
+        `${environment.tracer.url}/api/exposures/incidents`
       )
       .pipe(map((incidents) => incidents.items || []));
   }

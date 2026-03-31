@@ -1,3 +1,11 @@
+# ⚠️ PROJECT ARCHIVED ⚠️
+
+**This project has been officially archived and is no longer maintained.**
+
+This decision was made due to several factors, including the discovery of critical security vulnerabilities and the evolution of the project's dependencies. Continued use of this software is discouraged as it will not receive further security patches or updates.
+
+---
+
 # Tracer
 
 Tracer is a COVID-19 contact tracing application designed for patients (users) to self-report their visited locations. If a patient has caught the COVID-19 virus they can report an exposure, then all users at shared locations within a week of that exposure are alerted.

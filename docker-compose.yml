@@ -1,0 +1,47 @@
+networks:
+  tracer:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.0.0/24
+
+services:
+  tracer-frontend:
+    hostname: tracer-frontend
+    container_name: tracer-frontend
+    depends_on:
+      - tracer-api
+    build:
+      context: ./
+      dockerfile: ./docker-files/frontend/Dockerfile
+    ports:
+      - "4200:4200"
+    networks:
+      tracer:
+        ipv4_address: 10.0.0.16
+
+  tracer-api:
+    hostname: tracer-api
+    container_name: tracer-api
+    depends_on:
+      - tracer-db
+    build:
+      context: ./
+      dockerfile: ./docker-files/api/Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      tracer:
+        ipv4_address: 10.0.0.14
+
+  tracer-db:
+    hostname: tracer-db
+    container_name: tracer-db
+    image: mysql:8.2
+    ports:
+      - "3306:3306"
+    networks:
+      tracer:
+        ipv4_address: 10.0.0.12
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}

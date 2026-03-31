@@ -1,10 +1,7 @@
 export const environment = {
-  production: true
-};
-
-export const apis = {
+  production: true,
   tracer: { 
-    url: 'TRACER-API-URL'
+    url: 'http://localhost:3000'
   },
   google: {
     geocoding: {

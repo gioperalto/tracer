@@ -63,3 +63,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 /frontend/typings
+
+# Environment variables
+.env
+/frontend/src/environments/*
